@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>09 Mouse gradient</title>
+    <link rel="stylesheet" type="text/css" href="gradient.css">
+    <script type="text/javascript">
+        function attachGradientEvents() {
+            let gradient = document.getElementById('gradient');
+            gradient.addEventListener('mousemove', gradientMove);
+            gradient.addEventListener('mouseout', gradientOut);
+            function gradientMove(event) {
+                let power = event.offsetX / (event.target.clientWidth - 1);
+                power = Math.trunc(power * 100);
+                document.getElementById('result').textContent = power + "%";
+            }
+            function gradientOut(event) {
+                document.getElementById('result').textContent = ' ';
+            }
+        }
+    </script>
+</head>
+<body>
+<html>
+
+<body onload="attachGradientEvents()">
+<div id="gradient-box">
+    <div id="gradient">Click me!</div>
+</div>
+<div id="result"></div>
+</body>
+</html>
+
+</body>
+</html>
